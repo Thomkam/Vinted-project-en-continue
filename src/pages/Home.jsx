@@ -1,9 +1,9 @@
-/* import { Link } from "react-router-dom";
- */ import axios from "axios";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { Link } from "react-router-dom";
 
 const Home = () => {
-  const [offers, setOffers] = useState({});
+  const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -12,35 +12,45 @@ const Home = () => {
         const response = await axios.get(
           "https://lereacteur-vinted-api.herokuapp.com/offers"
         );
+
         // console.log(response.data);
-        setOffers(response.data.offers);
+        setData(response.data);
         setIsLoading(false);
       } catch (error) {
         console.log(error);
-        setIsLoading(false);
       }
     };
-
     fetchData();
   }, []);
 
-  return (
-    <>
-      <div className="home">
-        <h1>home page</h1>
-        {isLoading ? (
-          <p>Loading...</p>
-        ) : (
-          <ul className="offer-id">
-            {offers.map((offer) => {
-              return <p key={offer._id}>{offer.product_name}</p>;
-            })}
-          </ul>
-        )}
-        {/*         <Link to="/offer">lien vers une offre</Link> */}
-      </div>
-    </>
+  return isLoading ? (
+    <p>Loading...</p>
+  ) : (
+    <main>
+      <h1>Home</h1>
+      {data.offers.map((offer) => {
+        return (
+          <Link key={offer._id} to={`/offer/${offer._id}`}>
+            <article>
+              <div>
+                <img
+                  src={offer.owner.account.avatar?.secure_url}
+                  alt={offer.owner.account.username}
+                />
+                <span>{offer.owner.account.username}</span>
+              </div>
+              <img
+                src={offer.product_image.secure_url}
+                alt={offer.product_name}
+              />
+              <p>{offer.product_price} €</p>
+              <p>{offer.product_details[1].TAILLE}</p>
+              <p>{offer.product_details[0].MARQUE}</p>
+            </article>
+          </Link>
+        );
+      })}
+    </main>
   );
 };
-
 export default Home;
