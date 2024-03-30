@@ -1,0 +1,114 @@
+@font-face {
+  font-family: "V-Inter";
+  src: url("V-Inter-Medium-500.woff2") format("woff2"),
+    url("V-Inter-Medium-500.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "V-Inter";
+  src: url("V-Inter-Regular-375.woff2") format("woff2"),
+    url("V-Inter-Regular-375.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ------------------------------- */
+* {
+  box-sizing: border-box;
+}
+
+header {
+  display: flex;
+  font-family: "V-Inter", sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  align-items: center;
+}
+
+.logo1 {
+  width: 100px;
+  height: 100px;
+  margin-right: auto;
+}
+
+.search-bar {
+  width: 632px;
+  height: 40px;
+  display: flex;
+  align-self: flex-start;
+  margin-top: 10px;
+}
+
+.search-icon {
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+.search-bar > input {
+  width: 632px;
+  font-family: "V-Inter", sans-serif;
+  background-color: #f5f6f7;
+  border-radius: 4px;
+  padding: 3px;
+  border: none;
+}
+
+input::placeholder {
+  color: #cbcecf;
+}
+
+header button {
+  font-family: "V-Inter", sans-serif;
+  font-weight: normal;
+  justify-content: space-between;
+  flex-direction: row;
+  margin-bottom: 35px;
+}
+
+.btn-header {
+  margin-left: auto;
+  display: flex;
+}
+
+.btn-header button {
+  flex-grow: 1;
+  margin-left: 20px;
+}
+
+.btn-SignUp {
+  min-width: 114px;
+  padding: 10px;
+  background-color: #ffffff;
+  color: #2cb1ba;
+  border-radius: 4px;
+  border-color: #2cb1ba;
+  border: 1px solid;
+}
+
+.btn-login {
+  min-width: 114px;
+
+  padding: 10px;
+  margin-left: 0;
+  margin-right: 35px;
+  background-color: #ffffff;
+  color: #2cb1ba;
+  border-radius: 4px;
+  border-color: #2cb1ba;
+  border: 1px solid;
+}
+
+.btn-vends-tes-art {
+  min-width: 114px;
+
+  padding: 10px;
+  color: #ffffff;
+  background-color: #2cb1ba;
+  border-radius: 4px;
+  border-color: #2cb1ba;
+  border: 1px solid;
+}

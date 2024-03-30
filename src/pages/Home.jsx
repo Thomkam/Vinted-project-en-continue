@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import imgHeader from "../img/Fond-Homepage.jpg";
 
 const Home = () => {
   const [data, setData] = useState({});
@@ -27,6 +28,9 @@ const Home = () => {
     <p>Loading...</p>
   ) : (
     <main>
+      <div className="hero">
+        <img src={imgHeader} alt="" />
+      </div>
       <h1>Home</h1>
       {data.offers.map((offer) => {
         return (
@@ -34,9 +38,11 @@ const Home = () => {
             <article>
               <div>
                 <img
+                  /* {offer.owner.account.avatar && ( */
                   src={offer.owner.account.avatar?.secure_url}
                   alt={offer.owner.account.username}
                 />
+                {/*  )} */}
                 <span>{offer.owner.account.username}</span>
               </div>
               <img
