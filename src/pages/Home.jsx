@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import imgHeader from "../img/Fond-Homepage.jpg";
+import "../assets/css/home.css";
 
 const Home = () => {
   const [data, setData] = useState({});
@@ -30,32 +31,44 @@ const Home = () => {
     <main>
       <div className="hero">
         <img src={imgHeader} alt="" />
+        <div className="box-in-hero">
+          <h2>
+            Prêt à faire du tri <br /> dans vos placards ?
+          </h2>
+          <button>Commencer à vendre</button>
+        </div>
       </div>
-      <h1>Home</h1>
-      {data.offers.map((offer) => {
-        return (
-          <Link key={offer._id} to={`/offer/${offer._id}`}>
-            <article>
-              <div>
-                <img
-                  /* {offer.owner.account.avatar && ( */
-                  src={offer.owner.account.avatar?.secure_url}
-                  alt={offer.owner.account.username}
-                />
-                {/*  )} */}
-                <span>{offer.owner.account.username}</span>
-              </div>
-              <img
-                src={offer.product_image.secure_url}
-                alt={offer.product_name}
-              />
-              <p>{offer.product_price} €</p>
-              <p>{offer.product_details[1].TAILLE}</p>
-              <p>{offer.product_details[0].MARQUE}</p>
-            </article>
-          </Link>
-        );
-      })}
+      <div className="articles">
+        {data.offers.map((offer) => {
+          return (
+            <Link key={offer._id} to={`/offer/${offer._id}`}>
+              <article>
+                <div className="avatar">
+                  <img
+                    /* {offer.owner.account.avatar && ( */
+                    src={offer.owner.account.avatar?.secure_url}
+                    alt={offer.owner.account.username}
+                  />
+                  {/*  )} */}
+                  <span className="username">
+                    {offer.owner.account.username}
+                  </span>
+                </div>
+                <div className="info">
+                  <img
+                    className="img-products"
+                    src={offer.product_image.secure_url}
+                    alt={offer.product_name}
+                  />
+                  <p className="price">{offer.product_price} €</p>
+                  <p className="size">{offer.product_details[1].TAILLE}</p>
+                  <p className="brand">{offer.product_details[0].MARQUE}</p>
+                </div>
+              </article>
+            </Link>
+          );
+        })}
+      </div>
     </main>
   );
 };

@@ -38,21 +38,34 @@ header {
 .search-bar {
   width: 632px;
   height: 40px;
+  margin-left: 30px;
   display: flex;
   align-self: flex-start;
-  margin-top: 10px;
+  margin-top: 28px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.search-bar input:focus {
+  outline: none;
 }
 
 .search-icon {
-  margin-left: 10px;
-  margin-top: 10px;
+  color: #cbcecf;
+  margin-left: 30px;
+  background-color: #f5f6f7;
+  padding: 10px;
+  padding-bottom: 14px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
 }
 
 .search-bar > input {
   width: 632px;
   font-family: "V-Inter", sans-serif;
   background-color: #f5f6f7;
-  border-radius: 4px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
   padding: 3px;
   border: none;
 }
@@ -72,10 +85,11 @@ header button {
 .btn-header {
   margin-left: auto;
   display: flex;
+  margin-top: 30px;
 }
 
 .btn-header button {
-  flex-grow: 1;
+  /* flex-grow: 1; */
   margin-left: 20px;
 }
 
@@ -104,11 +118,15 @@ header button {
 
 .btn-vends-tes-art {
   min-width: 114px;
-
   padding: 10px;
   color: #ffffff;
   background-color: #2cb1ba;
   border-radius: 4px;
   border-color: #2cb1ba;
   border: 1px solid;
+  margin-right: 30px;
+}
+
+.btn-header .btn-vends-tes-art {
+  margin-left: 20px;
 }

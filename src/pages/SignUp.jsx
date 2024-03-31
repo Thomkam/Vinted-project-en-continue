@@ -59,45 +59,58 @@ const SignUp = ({ handleToken }) => {
   };
 
   return (
-    <main>
+    <main className="container">
       <form onSubmit={handleSubmit}>
-        <label>
-          <input
-            type="text"
-            placeholder="User Name"
-            name="username"
-            value={username}
-            onChange={(event) => {
-              setUserName(event.target.value);
-            }}
-          />
-        </label>
-        <br />
-        <label>
-          <input
-            type="email"
-            placeholder="Email"
-            value={email}
-            onChange={handleEmailChange}
-          />
-        </label>
-        <br />
-        <label>
-          <input
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={handlePasswordChange}
-          />
-        </label>
-        <input
-          checked={newsletter}
-          type="checkbox"
-          onChange={() => {
-            setNewsletter(!newsletter);
-          }}
-        />
-        <input type="submit" value={"s'inscrire"} />
+        <div className="form-group">
+          <label>
+            <input
+              type="text"
+              placeholder="User Name"
+              name="username"
+              value={username}
+              onChange={(event) => {
+                setUserName(event.target.value);
+              }}
+            />
+          </label>
+        </div>
+        <div className="form-group">
+          <label>
+            <input
+              type="email"
+              placeholder="Email"
+              value={email}
+              onChange={handleEmailChange}
+            />
+          </label>
+        </div>
+        <div className="form-group">
+          <label>
+            <input
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={handlePasswordChange}
+            />
+          </label>
+        </div>
+        <div className="form-group">
+          <div className="checkbox-container">
+            <input
+              checked={newsletter}
+              type="checkbox"
+              onChange={() => {
+                setNewsletter(!newsletter);
+              }}
+            />
+            <span className="checkbox-label">
+              S'inscrire à notre newsletter
+            </span>
+          </div>
+        </div>
+        <div className="form-group">
+          <input type="submit" value={"S'inscrire"} />
+        </div>
         {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
       </form>
       <Link to="/login">Already member? Login !</Link>

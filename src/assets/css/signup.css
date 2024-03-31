@@ -20,3 +20,45 @@
 * {
   box-sizing: border-box;
 }
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="submit"],
+input[type="checkbox"] {
+  width: 100%;
+  height: 40px; /* Définissez la hauteur désirée pour vos champs d'entrée */
+  margin-bottom: 30px; /* Espacement vertical de 30px entre les champs d'entrée */
+  max-width: 400px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px; /* Espacement vertical entre les groupes de champs */
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  width: 20px;
+}
+
+.checkbox-label {
+  width: 200px;
+  white-space: nowrap;
+  margin-bottom: 25px;
+}
+
+input[type="submit"],
+input[type="checkbox"] {
+  width: 100%;
+  height: 40px;
+}
