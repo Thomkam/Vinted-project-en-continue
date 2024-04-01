@@ -4,15 +4,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import "../assets/css/header.css";
 
-const Header = ({ token, handleToken }) => {
+const Header = ({ token, handleToken, search, setSearch }) => {
   return (
     <header>
       <div className="logoplace">
         <img className="logo1" src={logo1} alt="" />
-      </div>
-      <div className="search-bar">
-        <FontAwesomeIcon icon={faMagnifyingGlass} className="search-icon" />
-        <input type="text" placeholder="Rechercher des articles" />
       </div>
 
       {token ? (
@@ -26,6 +22,18 @@ const Header = ({ token, handleToken }) => {
         </button>
       ) : (
         <>
+          <div className="search-bar">
+            <FontAwesomeIcon icon={faMagnifyingGlass} className="search-icon" />
+            <input
+              placeholder="Rechercher des articles"
+              type="text"
+              name="search"
+              value={search}
+              onChange={(event) => {
+                setSearch(event.target.value);
+              }}
+            />
+          </div>
           <div className="btn-header">
             <Link to="/SignUp">
               <button className="btn-SignUp">S'inscrire</button>

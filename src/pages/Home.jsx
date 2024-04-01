@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import imgHeader from "../img/Fond-Homepage.jpg";
 import "../assets/css/home.css";
 
-const Home = () => {
+const Home = ({ search }) => {
   const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
 
@@ -12,7 +12,7 @@ const Home = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "https://lereacteur-vinted-api.herokuapp.com/offers"
+          `https://lereacteur-vinted-api.herokuapp.com/offers?title=${search}`
         );
 
         // console.log(response.data);
@@ -23,7 +23,7 @@ const Home = () => {
       }
     };
     fetchData();
-  }, []);
+  }, [search]);
 
   return isLoading ? (
     <p>Loading...</p>

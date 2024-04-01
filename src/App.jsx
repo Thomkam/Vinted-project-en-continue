@@ -29,6 +29,7 @@ library.add(faEnvelope, faKey, faListAlt); */
 
 function App() {
   const [token, setToken] = useState(Cookies.get("vinted-token") || null);
+  const [search, setSearch] = useState("");
 
   const handleToken = (token) => {
     if (token) {
@@ -43,9 +44,14 @@ function App() {
   return (
     <>
       <Router>
-        <Header token={token} handleToken={handleToken} />
+        <Header
+          token={token}
+          handleToken={handleToken}
+          search={search}
+          setSearch={setSearch}
+        />
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home search={search} />} />
           <Route
             path="/Offer/:id"
             element={<Offer handleToken={handleToken} />}
