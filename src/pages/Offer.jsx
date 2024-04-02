@@ -3,10 +3,12 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 
-const Offer = (token) => {
+const Offer = (token /* , title, product_price */) => {
   console.log(token);
   const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
+  /* const [title, setTitle] = useState();
+  const [productPrice, setProductPrice] = useState(); */
 
   const { id } = useParams();
   //   const id = params.id;

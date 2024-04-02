@@ -1,8 +1,8 @@
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
-import { useEffect, useState } from "react";
+/* import { useEffect, useState } from "react";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { useParams } from "react-router-dom"; */
 
 import CheckoutForm from "../components/CheckoutForm";
 
@@ -14,31 +14,13 @@ const stripePromise = loadStripe(
 function Payment() {
   // On imagine qu'on a reçu le prix de la future transaction
 
-  const price = {data.product_price}
-  
-  const [data, setData] = useState({});
- const [price, setPrice] = useState();
-  const { id } = useParams();
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(
-          `https://lereacteur-vinted-api.herokuapp.com/offer/${id}.product_price`
-        );
-        setPrice(response._id.product_price);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    fetchData();
-  }, [id]); 
-
-
+  /*  const price = {data.product_price}
+  navigate("/payment", { state: { title: data.title, price: data.product_price } }); */
 
   const options = {
     mode: "payment",
-    amount: Number((price * 100).toFixed(0)),
-    currency: "eur",
+    /*     amount: Number((price * 100).toFixed(0)),
+     */ currency: "eur",
   };
 
   // Le composant Elements doit contenir toute la logique de paiement
