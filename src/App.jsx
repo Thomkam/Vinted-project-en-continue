@@ -16,6 +16,8 @@ import Home from "./pages/Home";
 import Offer from "./pages/Offer";
 import SignUp from "./pages/SignUp";
 import LogIn from "./pages/LogIn";
+import PostAnAd from "./pages/PostAnAd";
+import Payment from "./pages/Payment";
 
 // Import des components
 import Header from "./components/Header";
@@ -61,6 +63,8 @@ function App() {
             element={<SignUp handleToken={handleToken} />}
           />
           <Route path="/LogIn/" element={<LogIn handleToken={handleToken} />} />
+          <Route path="/PostAnAd/" element={<PostAnAd token={token} />} />
+          <Route path="/Payment/" element={<Payment />} />
         </Routes>
       </Router>
     </>

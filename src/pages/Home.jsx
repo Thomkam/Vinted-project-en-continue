@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import imgHeader from "../img/Fond-Homepage.jpg";
+import imgHeader from "../img/hero.jpg";
 import "../assets/css/home.css";
 
 const Home = ({ search }) => {
@@ -30,12 +30,14 @@ const Home = ({ search }) => {
   ) : (
     <main>
       <div className="hero">
-        <img src={imgHeader} alt="" />
+        <img src={imgHeader} alt="hero" />
         <div className="box-in-hero">
           <h2>
             Prêt à faire du tri <br /> dans vos placards ?
           </h2>
-          <button>Commencer à vendre</button>
+          <Link to="/PostAnAd/">
+            <button>Commencer à vendre</button>
+          </Link>
         </div>
       </div>
       <div className="articles">

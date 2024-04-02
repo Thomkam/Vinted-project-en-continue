@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-const Offer = () => {
+const Offer = (token) => {
+  console.log(token);
   const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
 
@@ -23,14 +25,18 @@ const Offer = () => {
     };
     fetchData();
   }, [id]);
-
   return isLoading ? (
     <p>Loadind ...</p>
   ) : (
     <main>
       <h1>Offer</h1>
       <img src={data.product_image.secure_url} alt="img produit" />
-      <p>{data.product_price} €</p>
+      <p>
+        {data.product_price} €
+        <Link to={token ? "/Payment" : "/LogIn"}>
+          <button>Acheter</button>
+        </Link>
+      </p>
       <div>
         {data.product_details.map((detail) => {
           const keys = Object.keys(detail);

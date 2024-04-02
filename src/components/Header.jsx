@@ -8,18 +8,26 @@ const Header = ({ token, handleToken, search, setSearch }) => {
   return (
     <header>
       <div className="logoplace">
-        <img className="logo1" src={logo1} alt="" />
+        <Link to="/">
+          <img className="logo1" src={logo1} alt="" />
+        </Link>
       </div>
 
       {token ? (
-        <button
-          onClick={() => {
-            // Je me déconnecte en appelant la fonction handleToken et en lui donnant null en argument
-            handleToken(null);
-          }}
-        >
-          Se déconnecter
-        </button>
+        <div>
+          <button
+            className="btn-logout"
+            onClick={() => {
+              // Je me déconnecte en appelant la fonction handleToken et en lui donnant null en argument
+              handleToken(null);
+            }}
+          >
+            Se déconnecter
+          </button>
+          <Link to={token ? "/PostAnAd" : "/LogIn"}>
+            <button className="btn-vends-tes-art1">Vends tes articles</button>
+          </Link>
+        </div>
       ) : (
         <>
           <div className="search-bar">
@@ -43,10 +51,8 @@ const Header = ({ token, handleToken, search, setSearch }) => {
                 Se connecter
               </button>
             </Link>
-            <Link>
-              <button className="btn-vends-tes-art" to="/SignUp">
-                Vends tes articles
-              </button>
+            <Link to={token ? "/PostAnAd" : "/LogIn"}>
+              <button className="btn-vends-tes-art">Vends tes articles</button>
             </Link>
           </div>
         </>
