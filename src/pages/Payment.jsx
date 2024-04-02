@@ -19,8 +19,8 @@ function Payment() {
 
   const options = {
     mode: "payment",
-    /*     amount: Number((price * 100).toFixed(0)),
-     */ currency: "eur",
+    amount: Number((10 * 100).toFixed(0)),
+    currency: "eur",
   };
 
   // Le composant Elements doit contenir toute la logique de paiement
